@@ -131,14 +131,13 @@ app.use(express.static(path.join(__dirname, 'public')));
     -------------------------------------------*/
     app.use(
       connection(mysql,{
-        host: 'localhost',
-        user: 'root', // your mysql user
-        password : '', // your mysql password
-        port : 3306, //port mysql
-        database:'nodejs' // your database name
-    },'pool') //or single
- 
-      );
+          host: process.env.MYSQLHOST,
+          user: process.env.MYSQLUSER, // your mysql user
+          password : process.env.MYSQLPASSWORD, // your mysql password
+          port : process.env.MYSQLPORT, //port mysql
+          database:process.env.MYSQLDATABASE // your database name
+      },'pool') //or single
+  );
  
  
  
